@@ -1,0 +1,9 @@
+<div class="sort-filter-container container">
+  <label for="small" class="block mb-2 text-sm font-medium text-gray-900">Sorting</label>
+  <select id="small" data-controller="select" data-action="change->select#filter" class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-gray-800 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" selected="selected" >Select a sorting option</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="id asc">Oldest</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="id desc">Latest</option>
+    <%= yield %>
+  </select>
+</div>

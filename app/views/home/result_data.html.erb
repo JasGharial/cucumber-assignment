@@ -1,0 +1,48 @@
+<section class="result-data-container">
+  <div class="result-data-container-content-area flex justify-center">
+    <h2 class="container-title-text">Result Data</h2>
+  </div>
+
+  <%= render :layout => "shared/sort_select" do %>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="marks asc">Marks Ascending</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="marks desc">Marks Descending</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="timestamp asc">Timestamp Ascending</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="timestamp desc">Timestamp Descending</option>
+  <% end %>
+
+  <div id="results-data" class="container mx-auto mt-8">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Subject
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Timestamp
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Marks
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @results_data.each do |result_data| %>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= result_data.subject %>
+            </th>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= result_data.timestamp %>
+            </td>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= result_data.marks %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= render "shared/pager", pagy: @pagy %>
+</section>

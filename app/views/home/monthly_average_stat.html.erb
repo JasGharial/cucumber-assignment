@@ -1,0 +1,62 @@
+<section class="monthly-average-container">
+  <div class="monthly-average-container-content-area flex justify-center">
+    <h2 class="container-title-text">Monthly Average Stat</h2>
+  </div>
+
+  <%= render :layout => "shared/sort_select" do %>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="monthly_avg_low asc">Average Low Ascending</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="monthly_avg_low desc">Average Low Descending</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="monthly_avg_high asc">Average High Ascending</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="monthly_avg_high desc">Average High Descending</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="monthly_result_count_used asc">Result Count Ascending</option>
+    <option class="font-medium text-gray-900 whitespace-nowrap dark:text-white" value="monthly_result_count_used desc">Result Count Descending</option>
+  <% end %>
+
+  <div class="container mx-auto mt-8">
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+      <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+          <th scope="col" class="px-6 py-3">
+            Date
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Subject
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Monthly Average Low
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Monthly Average High
+          </th>
+          <th scope="col" class="px-6 py-3">
+            Monthly Results Count Used
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @monthly_average_stat.each do |result_data| %>
+          <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+            <th scope="row" class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= result_data.date %>
+            </th>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= result_data.subject %>
+            </td>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= result_data.monthly_avg_low %>
+            </td>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= result_data.monthly_avg_high %>
+            </td>
+            <td class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+              <%= result_data.monthly_result_count_used %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <%= render "shared/pager", pagy: @pagy %>
+</section>

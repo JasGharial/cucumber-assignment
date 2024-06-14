@@ -1,0 +1,58 @@
+<section class="home-container">
+  <div class="home-container-content-area flex justify-center">
+    <h2 class="container-title-text">Home Page</h2>
+  </div>
+  <%= render :layout => "shared/content_body" do %>
+    The Result Stats, Daily Result Stats, Monthly Result Stats as currently known, are as follows:
+  <% end %>
+
+  <div class="home-cards-container flex justify-around mt-8">
+    <div
+      class="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+      <div
+        class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-gradient-to-r from-cyan-500 to-blue-500 bg-cover bg-clip-border bg-center text-gray-700 shadow-none">
+        <div class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
+      </div>
+      <div class="relative p-6 px-6 pt-0 pb-14 md:px-12">
+        <h2 class="mb-6 block font-poppins text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
+          Today's Result Stats
+        </h2>
+        <h4 class="block mb-4 font-sans card-count antialiased font-semibold leading-snug tracking-normal text-gray-400">
+          <%= @result_data_count %>
+        </h4>
+      </div>
+    </div>
+
+    <div
+      class="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+      <div
+        class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-gradient-to-r from-sky-500 to-indigo-500 bg-cover bg-clip-border bg-center text-gray-700 shadow-none">
+        <div class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
+      </div>
+      <div class="relative p-6 px-6 pt-0 pb-14 md:px-12">
+        <h2 class="mb-6 block font-poppins text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
+          Total Daily Result Stats
+        </h2>
+        <h4 class="block mb-4 font-sans card-count antialiased font-semibold leading-snug tracking-normal text-gray-400">
+          <%= @daily_result_stat_count %>
+        </h4>
+      </div>
+    </div>
+
+    <div
+      class="relative grid h-[40rem] w-full max-w-[28rem] flex-col items-end justify-center overflow-hidden rounded-xl bg-white bg-clip-border text-center text-gray-700">
+      <div
+        class="absolute inset-0 m-0 h-full w-full overflow-hidden rounded-none bg-transparent bg-gradient-to-r from-violet-500 to-fuchsia-500 bg-cover bg-clip-border bg-center text-gray-700 shadow-none">
+        <div class="absolute inset-0 w-full h-full to-bg-black-10 bg-gradient-to-t from-black/80 via-black/50"></div>
+      </div>
+      <div class="relative p-6 px-6 pt-0 pb-14 md:px-12">
+        <h2 class="mb-6 block font-poppins text-4xl font-medium leading-[1.5] tracking-normal text-white antialiased">
+          Total Monthly Average Stats
+        </h2>
+        <h4 class="block mb-4 font-sans card-count antialiased font-semibold leading-snug tracking-normal text-gray-400">
+          <%= @monthly_average_stat_count %>
+        </h4>
+      </div>
+    </div>
+  </div>
+</section>
