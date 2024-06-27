@@ -17,7 +17,7 @@ module GenerateResultStat
         # In SQL Invocation, The data is fetched directly using PostgreSQL query.
         # One of them could be used as per preference!
         current_month_wednesday = Date.parse(date)
-        previous_month_wednesday = third_monday(current_month_wednesday - 1.months)
+        previous_month_wednesday = monday_of_third_wednesday_week(current_month_wednesday - 1.months)
         if INVOCATION.downcase == 'ruby'
           GenerateResultStat::MonthlyResultStat::RubyInvocation.new(previous_month_wednesday, current_month_wednesday).call
         else
