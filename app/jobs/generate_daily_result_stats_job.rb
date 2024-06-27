@@ -7,7 +7,7 @@ class GenerateDailyResultStatsJob < ApplicationJob
   def perform(*_args)
     GenerateResultStat::DailyStat.call
     current_date = Date.current
-    return unless current_date == third_monday(current_date)
+    return unless current_date == monday_of_third_wednesday_week(current_date)
 
     GenerateResultStat::MonthlyStat.call(date)
   end
